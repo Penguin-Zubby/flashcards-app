@@ -1,61 +1,74 @@
-const flashcards = document.getElementsByClassName('flashcards')[0];
-const createBox = document.getElementsByClassName('create-box')[0];
-const question = document.getElementsById('question');
-const answer = document.getElementsById('answer');
 //creating and array to check if we are already using local storage.
 var contentArray = sessionStorage.getItem('items')? 
 JSON.parse(sessionStorage.getItem('items')) : [];
 
-document.getElementById("addflashcard").addEventListener("click", () => {addFlashcard();});
-document.getElementById("closeCreateBox").addEventListener("click", () => {closeCreateBox();});
-document.getElementById("createFlashcards").addEventListener("click", () => {createFlashcards();});
-document.getElementById("deleteFlashcards").addEventListener("click", () => {deleteFlashcards();});
+document.getElementById("save_flashcard").addEventListener("click", () => {addFlashcard();});
 
-contentArray.array.forEach(secMaker);
-function secMaker(text) {
-    var sec = document.createElement('section');
-    var h2_question = document.createElement('h2');
-    var h2_answer = document.createElement('h2');
+document.getElementById("delete_flashcards").addEventListener("click", () => 
+{sessionStorage.clear();
+flashcards.innerHTML = '';
+contentArray = [];
+});
 
-    sec.className = 'flashcard';
-    h2_question.setAttribute('style', "border-top: 1px solid red; padding:15px; margin-top: 30px");
-    h2_question,innerHTML = text.user_question_;
+document.getElementById("create_flashcards").addEventListener("click", () => 
+{document.getElementById("create_flashcards").style.display = "block";});
 
-    h2_answer.setAttribute('style', "text-align:center; display:none; color:green");
-    h2_answer,innerHTML = text.user_answer_;
+document.getElementById("close_Create_Box").addEventListener("click", () => 
+{document.getElementById("create_card").style.display = "none";});
 
-    sec.appendchild(h2_question);
-    sec.appendChild(h2_answer);
 
-    sec.addEventListener('click', () => {
-        if(h2_answer.style.display === 'none')
-          h2_answer.style.display = 'block';
-        else
-          h2_answer.style.display = 'none';
+flashcardMaker = (text, delThisIndex) => {
+    const flashcard = document.createElement('section');
+    const question = document.createElement('h2');
+    const answer = document.createElement('h2');
+    const del = document.createElement('i');
+
+    flashcard.className = 'flashcard';
+    question.setAttribute('style', "border-top: 1px solid red; padding:15px; margin-top: 30px");
+    question.textContent = text.user_question_;
+
+    answer.setAttribute('style', "text-align:center; display:none; color:green");
+    answer.textContent = text.user_answer_;
+
+    del.className = "fas fa-minus";
+    del.addEventListener("click", ()=> {
+        contentArray.splice(delThisIndex, 1);
+        sessionStorage.setItem('items', JSON.stringify(contentArray));
+        window.location.reload();
     });
 
-    flashcards.appendChild(sec);
+    flashcard.appendchild(question);
+    flashcard.appendChild(answer);
+    flashcard.appendChild(del);
+
+    flashcard.addEventListener('click', () => {
+        if(answer.style.display === 'none')
+          answer.style.display = 'block';
+        else
+          answer.style.display = 'none';
+    });
+
+    document.querySelector("#flashcards").appendChild(flashcard);
 }
+contentArray.forEach(flashcardMaker);
 
 //this function will add a card to the screen.
 addFlashcard= () => {
-    var flashcard_data = {
+    const question = document.querySelector("#question");
+    const answer = document.querySelector("#answer");
+
+    var flashcard_info = {
         'user_question': question.value,
         'user_answer': answer.value
     }
-    contentArray.push(flashcard_data);
+    contentArray.push(flashcard_info);
     sessionStorage.setItem('items', JSON.stringify(contentArray));
-    secMaker(contentArray[contentArray.length - 1]);
+    flashcardMaker(contentArray[contentArray.length - 1], contentArray.length - 1);
     question.value = '';
     answer.value = '';
 }
 
-//this function will delete the card from the screen.
-deleteFlashcards = () => {
-    sessionStorage.clear();
-    flashcards.innerHTML = '';
-    contentArray = [];
-}
+
 
 //this function will open the create card box on the screen.
 createFlashcards= () => {

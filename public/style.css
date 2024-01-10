@@ -13,10 +13,6 @@ body {
     background-color:whitesmoke;
 }
 
-header {
-    background-color:white;
-}
-
 button {
     padding: 8px;
     outline: none;
@@ -31,8 +27,85 @@ button:hover{
 }
 
 .flash-container{
-    width: 95%;
+    width: 1280px;
     margin: auto;
+}
+
+header {
+    background-color:white;
+}
+
+#header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 70px;
+    padding: 0 20px;
+    background: white;
+}
+
+#header button{
+    font-family: inherit;
+    border: 1px solid red;
+}
+
+#create_flashcards{
+    display: none;
+    width: 370px;
+    margin: auto;
+    padding: 20px;
+    margin-top: 10px;
+    background: whitesmoke;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.9);
+}
+
+#create_flashcards h2{
+    color:black;
+    text-align: center;
+}
+
+#create_flashcards textarea{
+    width: 100%;
+    resize: none;
+    font-family: inherit;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
+
+#create_flashcards button{width: fit-content;}
+
+#flashcards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    margin: auto;
+    margin-top: 10px;
+    padding: 0 10px;
+    background: white;
+}
+
+.flashcard {
+    width: 370px;
+    height: 200px;
+    word-wrap: break-word;
+    margin: 10px;
+    background: white;
+    cursor: pointer;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.9);
+    position: relative;
+}
+
+.flashcard h2{
+    font-size: 1rem;
+}
+
+.fa-minus{
+    top: 3%;
+    right: 2%;
+    position: absolute;
+    color: #1a1a1a;
 }
 
 .nav{
@@ -43,54 +116,8 @@ button:hover{
     padding: 20px 0;
     background-color: white;
 }
-
-.nav button {
-    font-family: inherit;
-}
-
-.create-box{
-    width: 380px;
-    margin: auto;
-    padding: 20px;
-    margin-top: 10px;
-    border-radius: 5px;
-    background-color: whitesmoke;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
-}
-
-.create-box textarea{
-    width: 100%;
-    border-radius: 5px;
-    font-family: inherit;
-    border: 1px solid lightgray;
-}
-
-.create-box button{
-    width: fit-content;
-}
-
-.flashcards {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    width: 100%;
-    margin: auto;
-    margin-top: 10px;
-    padding: 0 10px;
-}
-/*Assigning dimentions for cards here so i do not have to do them in js*/
-.flashcard {
-    width: 370px;
-    height: 200px;
-    word-wrap: break-word;
-    margin: 10px;
-    background-color: white;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
-}
-
-.flashcard h2 {
-    font-size: 1.5rem;
+@media(max-width:1280px){
+    .flas-container{width: 100%}
 }
 
 @media(max-width:768px) {
@@ -106,14 +133,13 @@ button:hover{
 }
 
 @media(max-width:480px) {
-    .nav{
+    #header{
+        padding: 20px;
+        gap: 10px;
         flex-direction: column;
         align-items: center;
     }
-    .create-box{
-        width: 100%;
-    }
-    .flashcard{
-        width: 100%;
-    }
+    #create_flashcard{width: 95%;}
+
+    .flashcard{width: 100%;}
 }

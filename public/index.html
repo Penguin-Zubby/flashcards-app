@@ -8,42 +8,48 @@
       name="description"
       content="Web site created using create-react-app"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet" href="/style.css" />
     <title>Flashcards</title>
   </head>
 
   <body>
     <div id="root"></div>
+    <main>
     <!--The heading and nav section-->
     <header>
       <section class="flash-container">
-        <section class="nav">
+        <section id="header">
           <h1> Flashcard</h1>
           <section><!--Buttons section -->
-            <button type="button" onclick="createFlashcards()">New card</button>
-            <button type="button" onclick="deleteFlashcards()">Delete card</button>
+            <button type="button" id="create_flashcards">New card</button>
+            <button type="button" id="delete_flashcards">Delete card</button>
           </section>
         </section>
       </section>
     </header>
     <!--Box for user input-->
     <section class="flash-container">
-      <section class="create-box">
-        <h2 style="text-align: center;color: black;">Create Flashcard</h2>
+      <section id="create_flashcards">
+        <h2>Create Flashcard</h2>
         <label for="question">Question</label>
-        <textarea id="question"></textarea>
+        <textarea id="question" maxlength="280"></textarea>
         <br />
         <label for="answer">Answer</label>
-        <textarea id="answer"></textarea>
+        <textarea id="answer" maxlength="280"></textarea>
         <br />
         <section>
-          <button onclick="addFlashcard()">Save</button>
-          <button onclick="closeCreateBox()">Close</button>
+          <button id="save_flashcard">Save</button>
+          <button id="close_Create_Box">Close</button>
         </section>
       </section>
-      <!--Section for when flashcards are created-->
-      <section class="flashcards"></section>
     </section>
+      <!--Section for when flashcards are created-->
+    <section class="flash-container">
+     <section id="flashcards"></section>
+    </section>
+    
+    </main>
     <script src="script.js"></script>
   </body>
 </html>
