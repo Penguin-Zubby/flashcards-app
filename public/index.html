@@ -8,14 +8,42 @@
       name="description"
       content="Web site created using create-react-app"
     />
+    <link rel="stylesheet" href="/style.css" />
     <title>Flashcards</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   </head>
-  <body>
-    <div id="root">
 
-    </div>
+  <body>
+    <div id="root"></div>
+    <!--The heading and nav section-->
+    <header>
+      <section class="flash-container">
+        <section class="nav">
+          <h1> Flashcard</h1>
+          <section><!--Buttons section -->
+            <button type="button" onclick="createFlashcards()">New card</button>
+            <button type="button" onclick="deleteFlashcards()">Delete card</button>
+          </section>
+        </section>
+      </section>
+    </header>
+    <!--Box for user input-->
+    <section class="flash-container">
+      <section class="create-box">
+        <h2 style="text-align: center;color: black;">Create Flashcard</h2>
+        <label for="question">Question</label>
+        <textarea id="question"></textarea>
+        <br />
+        <label for="answer">Answer</label>
+        <textarea id="answer"></textarea>
+        <br />
+        <section>
+          <button onclick="addFlashcard()">Save</button>
+          <button onclick="closeCreateBox()">Close</button>
+        </section>
+      </section>
+      <!--Section for when flashcards are created-->
+      <section class="flashcards"></section>
+    </section>
+    <script src="script.js"></script>
   </body>
-  
 </html>
