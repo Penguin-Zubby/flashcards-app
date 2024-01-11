@@ -1,55 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <link rel="stylesheet" href="/style.css" />
-    <title>Flashcards</title>
-  </head>
-
-  <body>
-    <div id="root"></div>
-    <main>
-    <!--The heading and nav section-->
-    <header>
-      <section class="flash-container">
-        <section id="header">
-          <h1> Flashcard</h1>
-          <section><!--Buttons section -->
-            <button type="button" id="create_flashcards">New card</button>
-            <button type="button" id="delete_flashcards">Delete card</button>
-          </section>
-        </section>
-      </section>
-    </header>
-    <!--Box for user input-->
-    <section class="flash-container">
-      <section id="create_flashcards">
-        <h2>Create Flashcard</h2>
-        <label for="question">Question</label>
-        <textarea id="question" maxlength="280"></textarea>
-        <br />
-        <label for="answer">Answer</label>
-        <textarea id="answer" maxlength="280"></textarea>
-        <br />
-        <section>
-          <button id="save_flashcard">Save</button>
-          <button id="close_Create_Box">Close</button>
-        </section>
-      </section>
-    </section>
-      <!--Section for when flashcards are created-->
-    <section class="flash-container">
-     <section id="flashcards"></section>
-    </section>
-    
-    </main>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
-  </body>
+    <title>Flashcards</title>
+</head>
+<body>
+  <!--The heading and nav section-->
+  <header>
+    <div class="container">
+      <div id="header">
+        <h1> Flashcard</h1>
+        <div><!--Buttons section -->
+          <button type="button" id="show_card_box">New card</button>
+          <button type="button" id="delete_cards">Delete card</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!--Box for user input-->
+  <div class="container">
+    <div id="create_card">
+      <h2>Create Flashcard</h2>
+      <label for="question">Question</label>
+      <textarea id="question" maxlength="280"></textarea>
+      <br />
+      <label for="answer">Answer</label>
+      <textarea id="answer" maxlength="280"></textarea>
+      <br />
+      <div>
+        <button id="save_card">Save</button>
+        <button id="close_create_box">Close</button>
+      </div>
+    </div>
+  </div>
+  
+  <!--Section for when flashcards are created-->
+  <section>
+    <div class="container">
+      <div id="flashcards"></div>
+    </div>
+  </section>
+      
+</body>
 </html>

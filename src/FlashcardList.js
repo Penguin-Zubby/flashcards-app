@@ -1,4 +1,4 @@
-import React from 'react'
+/*import React from 'react'
 import Flashcard from './Flashcard';
 
 export default function FlashcardList({ flashcards }) {
@@ -10,3 +10,4 @@ export default function FlashcardList({ flashcards }) {
     </div>
   )
 }
+*/
