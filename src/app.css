@@ -1,4 +1,4 @@
-/*body {
+body {
     background-color: #C8D0D2;
     margin: 0;
 }
@@ -11,6 +11,8 @@
     background-color: white;
     box-shadow:0 0 5px 2px rgba(0, 0, 0, .3);
     padding: 0 1,5rem;
+    margin-left: .5rem;
+    margin-right: .5rem;
 }
 
 .form-group {
@@ -105,5 +107,5 @@
 .flashcard-option:first-child {
     margin-top: 0;
 }
-*/
+
 

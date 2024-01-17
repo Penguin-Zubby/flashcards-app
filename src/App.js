@@ -1,4 +1,4 @@
-/*import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import FlashcardList from './FlashcardList';
 import './app.css'
 import axios from 'axios';
@@ -52,6 +52,7 @@ function App() {
   return(
     <>
      <form className="header" onSubmit={handleSubmit}>
+     <h1>Quiz generator</h1>
        <div className="form-group">
         <label htmlFor="category">Category</label>
         <select id="category" ref={categoryE1}>
@@ -75,4 +76,3 @@ function App() {
   );
 }
 export default App;
-*/

@@ -1,4 +1,4 @@
-/*import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 export default function Flashcard({ flashcard }) {
     const [flip, setFlip] = useState(false)
@@ -37,4 +37,3 @@ export default function Flashcard({ flashcard }) {
     </div>
   )
 }
-*/
