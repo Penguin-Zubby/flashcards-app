@@ -9,7 +9,7 @@ function App() {
 
   const categoryE1 = useRef()
   const amountE1 = useRef()
-
+  //using react hook to handle API data from external source
   useEffect(() => {
     axios
     .get('https://opentdb.com/api_category.php')
@@ -20,13 +20,13 @@ function App() {
 
   useEffect(() => {
   }, [])
-
+  //function to handle inner html and convert it into a string
   function decodeString(str) {
     const textArea = document.createElement('textarea')
     textArea.innerHTML = str
     return textArea.value
   }
-
+  //function to handle submit
   function handleSubmit(event) {
     event.preventDefault()
     axios
@@ -36,6 +36,7 @@ function App() {
           amount: amountE1.current.value
         }
       })
+      //Format and set the fetched questions in state
       .then(response => {
         setFlashcards(response.data.results.map((questionItem, index) => {
           const answer = decodeString(questionItem.correct_answer)
@@ -50,7 +51,7 @@ function App() {
       })
   }
   return(
-    <>
+    <>{/*Form for category and number of questions*/}
      <form className="header" onSubmit={handleSubmit}>
      <h1>Quiz generator</h1>
        <div className="form-group">
@@ -69,6 +70,7 @@ function App() {
         <button type="submit" className="btn">Generate</button>
        </div>
      </form>
+     {/*display the generated flashcards*/}
      <div className="container">
       <FlashcardList flashcards={flashcards} />
      </div>
