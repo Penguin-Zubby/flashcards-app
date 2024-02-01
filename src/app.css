@@ -129,6 +129,7 @@ body {
         padding: 0.4rem 0.8rem;
     }
 }
+
 @media (max-width:320px) {
     h1 {font-size: 2.5rem;}
     .card-grid {width:95%}
