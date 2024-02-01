@@ -1,7 +1,7 @@
 //this var reterives data from the local storage
 var contentArray = localStorage.getItem('items')? 
 JSON.parse(localStorage.getItem('items')) : [];
-//reteriving all the alliments created in html file and assigning them functions
+//reteriving all the elements created in html file and assigning them functions
 document.getElementById("save_card").addEventListener("click", () => {addFlashcard();});
 
 document.getElementById("delete_cards").addEventListener("click", () => 
